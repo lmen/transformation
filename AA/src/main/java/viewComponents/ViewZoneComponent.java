@@ -8,13 +8,13 @@ public class ViewZoneComponent extends ViewComponentNode {
 		super(id);
 	}
 
-	private String id;
+	public String localid;
 
 	public static class ZoneComponentFactory implements ViewComponentFactory {
 
 		public ViewComponentNode createComponent(Element viewNode) {
 			ViewZoneComponent comp = new ViewZoneComponent(getViewName());
-			comp.id = ViewComponentFactory.elmAttrValue(viewNode, "id", null);
+			comp.localid = ViewComponentFactory.elmAttrValue(viewNode, "id", null);
 			return comp;
 		}
 
@@ -24,16 +24,9 @@ public class ViewZoneComponent extends ViewComponentNode {
 
 	}
 
-	public void accept(Visitor visitor) {
+	public <T> T visit(Visitor<T> visitor) {
 
-		// visitor.enterAny(this);
-		visitor.enter(this);
-
-		for (ViewComponentNode viewComponentNode : children) {
-			viewComponentNode.accept(visitor);
-		}
-
-		visitor.leave(this);
+		return visitor.enter(this);
 
 	}
 

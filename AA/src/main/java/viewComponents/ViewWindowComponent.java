@@ -24,16 +24,9 @@ public class ViewWindowComponent extends ViewComponentNode {
 
 	}
 
-	public void accept(Visitor visitor) {
+	public <T> T visit(Visitor<T> visitor) {
 
-		// visitor.enterAny(this);
-		visitor.enter(this);
-
-		for (ViewComponentNode viewComponentNode : children) {
-			viewComponentNode.accept(visitor);
-		}
-
-		visitor.leave(this);
+		return visitor.enter(this);
 
 	}
 

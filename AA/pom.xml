@@ -5,6 +5,25 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>AA</name>
   
+  <properties>
+  	<taget.jvm>1.8</taget.jvm>
+  </properties>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.0</version>
+			<configuration>
+				<source>${target.jvm}</source>
+				<target>${target.jvm}</target>
+			</configuration>
+		</plugin>
+  	</plugins>
+  
+  </build>
+  
   <dependencies>
   	
   		<!-- https://mvnrepository.com/artifact/org.jdom/jdom2 -->

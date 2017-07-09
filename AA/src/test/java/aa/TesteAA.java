@@ -7,9 +7,11 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.junit.Test;
 
+import components.ComponentNode;
+import components.ComponentTreePrinter;
+import processor.ComponentTreeBuilder;
 import viewComponents.ViewComponentNode;
 import viewComponents.ViewComponentTreePrinter;
-import viewComponents.Visitor;
 import xml.XmlTreeBuilder;
 import xml.XmlTreePrinter;
 
@@ -22,10 +24,11 @@ public class TesteAA {
 		Element root = new XmlTreeBuilder().build(xmlFile);
 		new XmlTreePrinter().print(root);
 
-		ViewComponentNode rootComp = new ViewComponentTreeBuilder().build(root);
-		new ViewComponentTreePrinter().print(rootComp);
+		ViewComponentNode rootViewComp = new ViewComponentTreeBuilder().build(root);
+		new ViewComponentTreePrinter().print(rootViewComp);
 
-		rootComp.accept(new Visitor());
+		ComponentNode rootComp = rootViewComp.visit(new ComponentTreeBuilder());
+		new ComponentTreePrinter().print(rootComp);
 	}
 
 }

@@ -1,21 +1,15 @@
 package viewComponents;
 
-public class Visitor {
+public interface Visitor<T> {
 
-	public void enter(ViewWindowComponent comp) {
-		System.out.println("specific enter viewInfo ViewWindowComponent ");
-	}
+	public T enter(ViewWindowComponent comp);
 
-	public void leave(ViewWindowComponent comp) {
-		System.out.println("specif leave viewInfo ViewWindowComponent ");
-	}
+	public T enter(ViewZoneComponent comp);
 
-	public void enter(ViewComponentNode viewInfo) {
-		System.out.println("GEN enter viewInfo: " + viewInfo.id);
-	}
+	public T enter(ViewOutputComponent comp);
 
-	public void leave(ViewComponentNode viewInfo) {
-		System.out.println("GEN leave viewInfo: " + viewInfo.id);
-	}
+	public T enter(ViewInputComponent comp);
+
+	public T enter(ViewComponentNode viewInfo);
 
 }
