@@ -1,0 +1,8 @@
+<div>
+<span>Zone</span>
+
+<#list children as item>
+    ${item.render()}
+</#list>
+
+</div>

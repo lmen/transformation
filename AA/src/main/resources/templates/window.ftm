@@ -1,0 +1,8 @@
+<div>Window</div>
+<div>
+
+<#list children as item>
+    ${item.render()}
+</#list>
+
+</div>

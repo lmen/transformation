@@ -1,5 +1,7 @@
 package components;
 
+import renderer.TemplateEngine;
+
 public class ZoneComponent extends ComponentNode {
 
 	public ZoneComponent(String name) {
@@ -8,7 +10,7 @@ public class ZoneComponent extends ComponentNode {
 
 	@Override
 	public String render() {
-		return "<div Zone </div";
+		return TemplateEngine.INSTANCE.render("zone.ftm", this);
 	}
 
 }

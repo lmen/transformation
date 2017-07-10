@@ -16,4 +16,8 @@ public abstract class ComponentNode {
 
 	public abstract String render();
 
+	public List<ComponentNode> getChildren() {
+		return children;
+	}
+
 }

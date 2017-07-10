@@ -1,5 +1,7 @@
 package components;
 
+import renderer.TemplateEngine;
+
 public class WindowComponent extends ComponentNode {
 
 	public WindowComponent(String name) {
@@ -8,7 +10,7 @@ public class WindowComponent extends ComponentNode {
 
 	@Override
 	public String render() {
-		return "<div Window </div";
+		return TemplateEngine.INSTANCE.render("window.ftm", this);
 	}
 
 }

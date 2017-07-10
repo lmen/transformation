@@ -1,5 +1,7 @@
 package components;
 
+import renderer.TemplateEngine;
+
 public class OutputComponent extends ComponentNode {
 
 	public OutputComponent(String name) {
@@ -8,7 +10,6 @@ public class OutputComponent extends ComponentNode {
 
 	@Override
 	public String render() {
-		return "<input type=\"label\" /";
+		return TemplateEngine.INSTANCE.render("output.ftm", this);
 	}
-
 }
